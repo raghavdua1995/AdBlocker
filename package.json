@@ -1,0 +1,20 @@
+{
+  "main": "AdBlock.html",
+  "name": "Ad-Block",
+  "description": "AdBlocker",
+  "version": "0.1.0",
+  "window": {
+    "title": "Ad-Block",
+    "icon": "adblock.ico",
+    "frame": true,
+    "width": 800,
+    "height": 500,
+    "position": "center",
+    "min_width": 1280,
+    "min_height": 720,
+    "fullscreen": false
+  },
+  "webkit": {
+    "plugin": true
+  }
+}

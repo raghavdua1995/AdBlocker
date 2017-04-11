@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ad-Block</title>
+<meta charset="utf-8">
+<meta name="AdBlock">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="adblock.ico">
+<link rel="stylesheet" href="externalCSS.css">
+<link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script>
+$(window).load(function(){
+    $(".loader").fadeOut(6000);
+   });
+function home()
+{
+document.getElementById('maincontent').style.opacity='1'
+document.getElementById('adblock').style.display='block'
+document.getElementById('status').style.display='none'
+document.getElementById('blacklist').style.display='none'
+document.getElementById('query').style.display='none'
+document.getElementById('querytext').style.display='none'
+document.getElementById('msg').style.display='none'
+document.getElementById('restore').style.display='none'
+document.getElementById('developers').style.display='none'
+document.getElementById('credits').style.display='none'
+document.getElementById('feedback').style.display='none'
+}
+function initstatus()
+{
+document.getElementById("ifr1").src="http://127.0.0.1:8383/count"
+}
+function status()
+{
+document.getElementById("ifr1").src="http://127.0.0.1:8383/count"
+document.getElementById('maincontent').style.opacity='1'
+document.getElementById('adblock').style.display='none'
+document.getElementById('status').style.display='block'
+document.getElementById("ifr2").src="iframe.html"
+document.getElementById('ifr2').style.display='block'
+document.getElementById('blacklist').style.display='none'
+document.getElementById('query').style.display='none'
+document.getElementById('querytext').style.display='none'
+document.getElementById('msg').style.display='none'
+document.getElementById('restore').style.display='none'
+document.getElementById('developers').style.display='none'
+document.getElementById('credits').style.display='none'
+document.getElementById('feedback').style.display='none'
+}
+function query()
+{
+document.getElementById('maincontent').style.opacity='1'
+document.getElementById('adblock').style.display='none'
+document.getElementById('status').style.display='none'
+document.getElementById('blacklist').style.display='none'
+document.getElementById('query').style.display='block'
+document.getElementById('querytext').style.display='block'
+document.getElementById('msg').style.display='none'
+document.getElementById('restore').style.display='none'
+document.getElementById('developers').style.display='none'
+document.getElementById('credits').style.display='none'
+document.getElementById('feedback').style.display='none'
+}
+function submitquery(){
+document.getElementById("queryform").submit();
+setTimeout(reloadifr3,1000)
+}
+function reloadifr3()
+{
+document.getElementById('ifr3').src = document.getElementById('ifr3').src
+}
+function blacklist()
+{
+document.getElementById('maincontent').style.opacity='1'
+document.getElementById('adblock').style.display='none'
+document.getElementById('status').style.display='none'
+document.getElementById('blacklist').style.display='block'
+document.getElementById('msg').style.display='block'
+document.getElementById('query').style.display='none'
+document.getElementById('querytext').style.display='none'
+document.getElementById('restore').style.display='none'
+document.getElementById('developers').style.display='none'
+document.getElementById('credits').style.display='none'
+document.getElementById('feedback').style.display='none'
+}
+function restore()
+{
+document.getElementById('maincontent').style.opacity='1'
+document.getElementById('adblock').style.display='none'
+document.getElementById('status').style.display='none'
+document.getElementById('blacklist').style.display='none'
+document.getElementById('query').style.display='none'
+document.getElementById('querytext').style.display='none'
+document.getElementById('msg').style.display='none'
+document.getElementById('restore').style.display='block'
+document.getElementById('developers').style.display='none'
+document.getElementById('credits').style.display='none'
+document.getElementById('feedback').style.display='none'
+}
+function credits()
+{
+document.getElementById('maincontent').style.opacity='1'
+document.getElementById('adblock').style.display='none'
+document.getElementById('status').style.display='none'
+document.getElementById('blacklist').style.display='none'
+document.getElementById('msg').style.display='none'
+document.getElementById('query').style.display='none'
+document.getElementById('querytext').style.display='none'
+document.getElementById('restore').style.display='none'
+document.getElementById('developers').style.display='none'
+document.getElementById('credits').style.display='block'
+document.getElementById('feedback').style.display='none'
+}
+function developers()
+{
+document.getElementById('maincontent').style.opacity='1'
+document.getElementById('adblock').style.display='none'
+document.getElementById('status').style.display='none'
+document.getElementById('blacklist').style.display='none'
+document.getElementById('msg').style.display='none'
+document.getElementById('query').style.display='none'
+document.getElementById('querytext').style.display='none'
+document.getElementById('restore').style.display='none'
+document.getElementById('developers').style.display='block'
+document.getElementById('credits').style.display='none'
+document.getElementById('feedback').style.display='none'
+}
+function feedback()
+{
+document.getElementById('maincontent').style.opacity='0'
+document.getElementById('feedback').style.display='block'
+}
+</script>
+</head>
+<body bgcolor="#f2f2f2" onload="initstatus()">
+<div class="loader"><text3 id="loading"><text3></div>
+<center>
+<div id="maincontent">
+<div class="adblock" id="adblock">
+<a class="main" title="Click to block ads" onClick='document.getElementById("ifr1").src="http://127.0.0.1:8383/hello"'>Block Ads</a>
+</div>
+<div id="status">
+<center>
+<iframe id="ifr2" frameborder="0" scrolling="no"></iframe>
+<text>Domains are being blocked</text>
+</center>
+</div>
+<p id="querytext">Enter a domain to query the hostfile:</p>
+<div id="query">
+<form id ="queryform" action= "http://127.0.0.1:8383/query" method="get" target="ifr1">
+<input name="q" id="q" type="text" placeholder="   example1.com" required/>&nbsp<input value="Go" id="button1" type="button" onclick="submitquery()" />
+</form>
+<iframe id="ifr3" frameborder="0" scrolling="no" src="iframe2.html"></iframe>
+</div>
+<msg id="msg">Enter one or more domains you want to block:</msg>
+<div id="blacklist">
+<center>
+<form action= "http://127.0.0.1:8383/blacklist" method="get" target="ifr1">
+<input name="url" id="url" type="text" placeholder="  example1.com,example2.com,example3.com....." required/>&nbsp<input value="Go" id="button1" type="submit" />
+</form>
+</center>
+</div>
+<div id="restore">
+<a class="main2" title="Click to unblock ads" onClick='document.getElementById("ifr1").src="http://127.0.0.1:8383/unblock"'>Unblock Ads</a>
+</div>
+<div id="credits">
+This project uses the following amazing technologies:</br></br>
+<div id="crimg">
+<a id="cr" href=javascript:nw.Shell.openExternal("https://www.python.org/")><img src="python-logo.png" width="150px" height="82px"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a id="cr" href=javascript:nw.Shell.openExternal("https://bottlepy.org/docs/dev/")><img src="bottlepy-logo.png" width="150px" height="82px"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a id="cr" href=javascript:nw.Shell.openExternal("https://www.w3.org/TR/html5/")><img src="html5-logo.png" height="82px"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a id="cr" href=javascript:nw.Shell.openExternal("https://www.w3.org/TR/CSS/")><img src="css3-logo.png" height="82px"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a id="cr" href=javascript:nw.Shell.openExternal("http://www.json.org/")><img src="json-logo.png" height="82px"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a id="cr" href=javascript:nw.Shell.openExternal("https://nwjs.io/")><img src="nw.js-logo.png" height="82px"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a id="cr" href=javascript:nw.Shell.openExternal("https://jquery.com/")><img src="jquery-logo.png" height="82px"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a id="cr" href=javascript:nw.Shell.openExternal("https://www.ecma-international.org/publications/standards/Ecma-262.htm")><img src="JavaScript-logo.png" height="82px"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a id="cr" href=javascript:nw.Shell.openExternal("https://postmail.invotes.com/")><img src="postmail-logo.png" height="82px"></a>
+</div>
+</br></br></br></br></br></br>
+<center>And the teacher who taught them to us:</br></br>
+<a href=javascript:nw.Shell.openExternal("http://gbpec.edu.in/doc/Faculty_Profile/CSE/Manjeet_Pangtey_CSE.pdf")>Manjeet Singh Pangtey</a><br></br></br>
+</center>
+<center>Special thanks to:</br></br>
+<a href=javascript:nw.Shell.openExternal("https://github.com/StevenBlack/hosts")>Steven Black</a><br></br>
+<center>for curating the hosts file used in this project</br>
+</div>
+<div id="developers">
+<center>This project was made by:</br></br>
+Raghav Dua</br></br>
+Ramesh Kumar Varun</br></br>
+Nikhil Kumar</br></br>
+Anshul Rawat</br></br>
+</center>
+</div>
+</div>
+</center>
+<center>
+<div id="feedback">
+</br>
+Thank you for using our application.You can provide your feedback or suggestions for future versions below:</br></br>
+<form action="https://postmail.invotes.com/send" method="post" id="email_form" target="ifr1"></br>
+<input type="text" name="Subject" placeholder="Email" size="60" /><br>
+<textarea name="text" placeholder="Message" rows="7" cols="60"></textarea>
+<input type="hidden" name="access_token" value="cvmzz87h4q2kw6j77whp1fov" />
+<input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
+<input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" /><br>
+<input id="submit_form" type="submit" value="Send" />
+<p>Powered by <a href=javascript:nw.Shell.openExternal("https://postmail.invotes.com") >PostMail</a></p>
+</form>
+</div>
+</center>
+<div class="sidebar">
+<a class="logo" onclick="home()"><img src="adblock.png" height="48px"></a><a class="link" onclick="home()">Home&nbsp</a><a class="link" onclick="status()">&nbspStatus<sub>beta<sub>&nbsp</a><a class="link" onclick="query()">&nbspQuery&nbsp</a><a class="link" onclick="blacklist()">&nbspBlacklist&nbsp</a><a class="link" onclick="restore()">&nbspRestore&nbsp</a><a class="link" onclick="credits()">&nbspCredits&nbsp</a><a class="link" onclick="developers()">&nbspDevelopers&nbsp</a><a class="link2" onclick="feedback()">&nbspFeedback</a>
+</div>
+<iframe name="ifr1" id="ifr1" frameborder="0" scrolling="no">
+<iframe name="ifrq" id="ifrq" frameborder="0" scrolling="no">
+</body>
+</html>

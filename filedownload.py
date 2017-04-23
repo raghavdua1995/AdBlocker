@@ -14,12 +14,16 @@ response.close()
 def hello():
 	blocktheshit()
 def blocktheshit():
-	shutil.copy('C:\Windows\System32\drivers\etc\hosts', 'C:\AdBlock\hosts_backup') 
-	shutil.copy('C:\AdBlock\hosts', 'C:\Windows\System32\drivers\etc')
+	os.system ("copy %s %s" % ('C:\Windows\System32\drivers\etc\hosts', 'C:\AdBlock\hosts_backup'))
+	os.system ("copy %s %s" % ('C:\AdBlock\hosts', 'C:\Windows\System32\drivers\etc'))
 	count()
 @route('/unblock')
 def unblock():
-	shutil.copy('C:\AdBlock\hosts_backup\orignal\hosts', 'C:\Windows\System32\drivers\etc')
+	os.system("echo.")
+	os.system("echo Working on it....")
+	os.system("timeout /t 45 /nobreak")
+	os.system ("del /f C:\Windows\System32\drivers\etc\hosts")
+	os.system ("copy %s %s" % ('C:\AdBlock\hosts_backup\orignal\hosts', 'C:\Windows\System32\drivers\etc'))
 	count()
 @route('/count')
 def count():

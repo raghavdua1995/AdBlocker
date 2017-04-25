@@ -32,14 +32,12 @@ function initstatus()
 {
 document.getElementById("ifr1").src="http://127.0.0.1:8383/count"
 }
-function status()
+function statusA()
 {
-document.getElementById("ifr1").src="http://127.0.0.1:8383/count"
 document.getElementById('maincontent').style.opacity='1'
 document.getElementById('adblock').style.display='none'
 document.getElementById('status').style.display='block'
-document.getElementById("ifr2").src="iframe.html"
-document.getElementById('ifr2').style.display='block'
+document.getElementById("ifr1").src="http://127.0.0.1:8383/count"
 document.getElementById('blacklist').style.display='none'
 document.getElementById('query').style.display='none'
 document.getElementById('querytext').style.display='none'
@@ -48,6 +46,12 @@ document.getElementById('restore').style.display='none'
 document.getElementById('developers').style.display='none'
 document.getElementById('credits').style.display='none'
 document.getElementById('feedback').style.display='none'
+}
+function statusB()
+{
+
+document.getElementById('ifr2').src="iframe.html"
+document.getElementById('ifr2').style.display='block'
 }
 function query()
 {
@@ -69,7 +73,8 @@ setTimeout(reloadifr3,1000)
 }
 function reloadifr3()
 {
-document.getElementById('ifr3').src = document.getElementById('ifr3').src
+document.getElementById('ifr3').src = "iframe2.html"
+document.getElementById('ifr3').style.display='block'
 }
 function blacklist()
 {
@@ -131,11 +136,11 @@ function feedback()
 {
 document.getElementById('maincontent').style.opacity='0'
 document.getElementById('feedback').style.display='block'
-}
+} 
 </script>
 </head>
 <body bgcolor="#f2f2f2" onload="initstatus()">
-<div class="loader"><text3 id="loading"><text3></div>
+<div class="loader"></div>
 <center>
 <div id="maincontent">
 <div class="adblock" id="adblock">
@@ -152,7 +157,7 @@ document.getElementById('feedback').style.display='block'
 <form id ="queryform" action= "http://127.0.0.1:8383/query" method="get" target="ifr1">
 <input name="q" id="q" type="text" placeholder="   example1.com" required/>&nbsp<input value="Go" id="button1" type="button" onclick="submitquery()" />
 </form>
-<iframe id="ifr3" frameborder="0" scrolling="no" src="iframe2.html"></iframe>
+<iframe id="ifr3" frameborder="0" scrolling="no"></iframe>
 </div>
 <msg id="msg">Enter one or more domains you want to block:</msg>
 <div id="blacklist">
@@ -212,9 +217,9 @@ Thank you for using our application.You can provide your feedback or suggestions
 </div>
 </center>
 <div class="sidebar">
-<a class="logo" onclick="home()"><img src="adblock.png" height="48px"></a><a class="link" onclick="home()">Home&nbsp</a><a class="link" onclick="status()">&nbspStatus<sub>beta<sub>&nbsp</a><a class="link" onclick="query()">&nbspQuery<sub>beta<sub>&nbsp</a><a class="link" onclick="blacklist()">&nbspBlacklist&nbsp</a><a class="link" onclick="restore()">&nbspRestore&nbsp</a><a class="link" onclick="credits()">&nbspCredits&nbsp</a><a class="link" onclick="developers()">&nbspDevelopers&nbsp</a><a class="link2" onclick="feedback()">&nbspFeedback</a>
+<a class="logo" onclick="home()"><img src="adblock.png" height="48px"></a><a class="link" onclick="home()">Home&nbsp</a><a class="link" onclick="statusA()">&nbspStatus<sub>beta<sub>&nbsp</a><a class="link" onclick="query()">&nbspQuery<sub>beta<sub>&nbsp</a><a class="link" onclick="blacklist()">&nbspBlacklist&nbsp</a><a class="link" onclick="restore()">&nbspRestore&nbsp</a><a class="link" onclick="credits()">&nbspCredits&nbsp</a><a class="link" onclick="developers()">&nbspDevelopers&nbsp</a><a class="link2" onclick="feedback()">&nbspFeedback</a>
 </div>
-<iframe name="ifr1" id="ifr1" frameborder="0" scrolling="no">
+<iframe name="ifr1" id="ifr1" frameborder="0" scrolling="no" onload="statusB()" >
 <iframe name="ifrq" id="ifrq" frameborder="0" scrolling="no">
 </body>
 </html>

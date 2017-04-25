@@ -14,21 +14,21 @@ response.close()
 def hello():
 	blocktheshit()
 def blocktheshit():
-	os.system ("copy %s %s" % ('C:\Windows\System32\drivers\etc\hosts', 'C:\AdBlock\hosts_backup'))
-	os.system ("copy %s %s" % ('C:\AdBlock\hosts', 'C:\Windows\System32\drivers\etc'))
+	os.system ("copy %s %s" % ('\windows\system32\drivers\etc\hosts', 'C:\AdBlock\hosts_backup'))
+	os.system ("copy %s %s" % ('C:\AdBlock\hosts', '\windows\system32\drivers\etc'))
 	count()
 @route('/unblock')
 def unblock():
 	os.system("echo.")
 	os.system("echo Working on it....")
 	os.system("timeout /t 45 /nobreak")
-	os.system ("del /f C:\Windows\System32\drivers\etc\hosts")
-	os.system ("copy %s %s" % ('C:\AdBlock\hosts_backup\orignal\hosts', 'C:\Windows\System32\drivers\etc'))
+	os.system ("del /f \windows\system32\drivers\etc\hosts")
+	os.system ("copy %s %s" % ('C:\AdBlock\hosts_backup\orignal\hosts', '\windows\system32\drivers\etc'))
 	count()
 @route('/count')
 def count():
 	count = 0
-	with open('C:\Windows\System32\drivers\etc\hosts') as fileObj:
+	with open('\windows\system32\drivers\etc\hosts') as fileObj:
 		for line in fileObj:  
 			for ch in line:
 				if(ch=='0'):
@@ -56,7 +56,7 @@ def query():
 	content1 = '''<!DOCTYPE html><html><head><link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet"></head><body><p style="font-family: 'Yanone Kaffeesatz', sans-serif; font-size: 48px;">'''
 	content3 = '''</p></body></html>'''
 	querycheck = '0.0.0.0 '+ query
-	file = "C:\Windows\System32\drivers\etc\hosts"
+	file = "\windows\system32\drivers\etc\hosts"
 	f3=open(file, 'r')
 	for line in f3:
 		if(querycheck in line):
@@ -76,7 +76,7 @@ def query():
 @route('/blacklist')
 def blacklist():
 	j=0
-	file2 = "C:\Windows\System32\drivers\etc\hosts"
+	file2 = "\windows\system32\drivers\etc\hosts"
 	f2 = open(file2, 'a')
 	url = request.query.url
 	for i in range(0,len(url)):
